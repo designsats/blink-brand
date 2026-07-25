@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blink — One-pager / Memo Template</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   BLINK ONE-PAGER / MEMO / REPORT
+   A4 · print to PDF. Light and dark.
+   ============================================================ */
+:root{
+  --gradient:linear-gradient(45deg,#ffbe0b,#fb5607);
+  --bg:#FFFFFF; --surface:#F2F2F4; --raised:#E7E7E7;
+  --text:#1d1d1d; --text-2:#3A3C51; --muted:#9292A0; --border:#E2E2E4;
+  --accent:#fc5805; --error:#DC2626; --success:#00A700; --warning:#F59E0B;
+  --s1:3px;--s2:5px;--s3:8px;--s4:10px;--s5:14px;--s6:20px;--s7:30px;
+  --r-sm:8px;--r-lg:16px;--r-full:999px;
+}
+[data-theme="dark"]{
+  --bg:#1d1d1d; --surface:#2B2B2B; --raised:#393939;
+  --text:#FAF9F9; --text-2:#E9E8E8; --muted:#949494; --border:#393939;
+  --accent:#ffad0d;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1d1d1d; --surface:#2B2B2B; --raised:#393939;
+    --text:#FAF9F9; --text-2:#E9E8E8; --muted:#949494; --border:#393939;
+    --accent:#ffad0d;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"IBM Plex Sans",system-ui,sans-serif;background:var(--bg);color:var(--text);
+     -webkit-font-smoothing:antialiased;line-height:1.5}
+.page{max-width:820px;margin:0 auto;padding:60px var(--s7) 90px}
+
+/* masthead */
+.masthead{display:flex;justify-content:space-between;align-items:flex-end;
+          padding-bottom:var(--s6);border-bottom:1px solid var(--border);margin-bottom:var(--s7)}
+.logo{height:36px;width:auto}
+.meta{font-size:14px;color:var(--muted);text-align:right}
+
+/* type */
+h1{font-size:38px;line-height:1.15;font-weight:700;letter-spacing:-.01em;margin-bottom:var(--s5)}
+h2{font-size:24px;line-height:1.2;font-weight:700;margin-top:var(--s7);margin-bottom:var(--s4)}
+h3{font-size:20px;line-height:1.3;font-weight:500;margin-top:var(--s6);margin-bottom:var(--s3)}
+p{font-size:16px;line-height:1.5;margin-bottom:var(--s5);max-width:70ch}
+.lead{font-size:20px;line-height:1.4;color:var(--text-2);margin-bottom:var(--s7)}
+.eyebrow{font-size:14px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+         color:var(--accent);margin-bottom:var(--s4)}
+small,.small{font-size:14px;line-height:1.4;color:var(--muted)}
+ul,ol{margin:0 0 var(--s5) var(--s6);padding-left:var(--s5)}
+li{font-size:16px;line-height:1.5;margin-bottom:var(--s2);max-width:68ch}
+a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+strong{font-weight:600}
+hr{height:1px;background:var(--border);border:0;margin:var(--s7) 0}
+
+/* blocks */
+.callout{background:var(--surface);border-radius:var(--r-lg);padding:var(--s7);margin:var(--s6) 0}
+.callout--accent{background:var(--gradient);color:#000}   /* black on orange — white fails contrast */
+.callout--accent .small{color:rgba(0,0,0,.7)}
+.callout p:last-child{margin-bottom:0}
+
+table{width:100%;border-collapse:collapse;margin:var(--s6) 0;font-size:16px}
+th{text-align:left;font-weight:600;padding:var(--s4) var(--s4) var(--s4) 0;
+   border-bottom:2px solid var(--border)}
+td{padding:var(--s4) var(--s4) var(--s4) 0;border-bottom:1px solid var(--border);
+   font-variant-numeric:tabular-nums}
+
+.chip{display:inline-flex;padding:var(--s2) var(--s4);border-radius:var(--r-sm);
+      background:var(--raised);font-size:14px;font-weight:500}
+.btn{display:inline-flex;align-items:center;padding:var(--s4) var(--s6);
+     border-radius:var(--r-full);background:var(--accent);color:#000;
+     font-size:16px;font-weight:500;text-decoration:none}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s6);margin:var(--s7) 0}
+.stat__value{font-size:38px;line-height:1;font-weight:700;font-variant-numeric:tabular-nums;display:block}
+.stat__label{font-size:14px;color:var(--muted)}
+
+footer{margin-top:var(--s7);padding-top:var(--s6);border-top:1px solid var(--border);
+       display:flex;justify-content:space-between;font-size:14px;color:var(--muted)}
+
+/* theme toggle — strip before exporting */
+.toggle{position:fixed;top:var(--s6);right:var(--s6);display:flex;gap:var(--s2);
+        background:var(--surface);padding:var(--s2);border-radius:var(--r-full);border:1px solid var(--border)}
+.toggle button{border:0;border-radius:var(--r-full);padding:var(--s2) var(--s5);cursor:pointer;
+        font-family:inherit;font-size:14px;font-weight:500;background:transparent;color:var(--text)}
+.toggle button[aria-pressed="true"]{background:var(--accent);color:#000}
+@media print{.toggle{display:none}.page{padding:0}body{background:#fff;color:#1d1d1d}}
+@media (max-width:600px){.stats{grid-template-columns:1fr}.page{padding:var(--s7) var(--s6) 60px}}
+</style>
+</head>
+<body>
+
+<div class="toggle">
+  <button data-t="light" aria-pressed="true">Light</button>
+  <button data-t="dark"  aria-pressed="false">Dark</button>
+</div>
+
+<div class="page">
+
+  <div class="masthead">
+    <svg class="logo" viewBox="0 0 769 233.4" xmlns="http://www.w3.org/2000/svg" aria-label="Blink"><defs><linearGradient id="g" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#ffbe0b"/><stop offset="1" stop-color="#fb5607"/></linearGradient></defs><path fill="url(#g)" d="M145.1,3.5c-0.1,0-0.2-0.1-0.3-0.1C135.4,1.1,125.9,0,116.6,0l0,0h0l0,0C64.2,0,16.6,35.5,3.5,88.6C-12.1,151.2,26.1,214.5,88.6,230c9.4,2.3,18.9,3.5,28.2,3.5c52.4,0,100-35.5,113.2-88.6C245.5,82.4,207.5,19.2,145.1,3.5z M220.8,142.5c-11.9,48-54.7,81.5-104,81.5c-8.7,0-17.4-1.1-25.9-3.2c-27.8-6.9-51.3-24.2-66.1-48.7S5.7,118.7,12.6,90.9C24.5,43,67.3,9.5,116.7,9.4c8.7,0,17.4,1.1,26,3.2l0.1,0l0.1,0C200,27.1,235,85.3,220.8,142.5z"/><g fill="currentColor"><path d="M141,101.1c-3.4,13.4-23.8,6.5-30.4,4.9l5.9-23.5c6.5,1.6,27.9,4.7,24.5,18.6L141,101.1L141,101.1z M137.4,139c-3.6,14.6-28.2,6.7-36.2,4.7l6.5-25.9C115.6,119.8,141.2,123.8,137.4,139z M164.2,101.3c2.1-14.3-8.8-21.9-23.5-27l4.8-19.3L133.7,52L129,70.8c-3.1-0.8-6.3-1.5-9.4-2.2l4.7-19l-11.8-2.9l-4.8,19.3l-7.5-1.7l-16.3-4.1l-3.1,12.6c0,0,8.1,2,8.6,2.1c2.6,0.5,5.8,3.4,5.5,6.7l-13.2,52.9c-0.7,2.3-3.1,3.5-5.4,2.8l0,0c-0.3-0.1-8.6-2.1-8.6-2.1l-5.8,13.4l15.3,3.8l8.4,2.2l-4.9,19.5l11.8,3l4.8-19.3c3.2,0.9,6.3,1.7,9.4,2.4l-4.8,19.4l11.8,2.9l4.9-19.5c20.1,3.8,35.2,2.3,41.5-15.9c5.1-14.6-0.3-23-10.8-28.5C156.9,116.8,162.6,111.9,164.2,101.3L164.2,101.3z"/><path d="M337.4,81.3c7.3,0,13.6,1.3,18.9,3.9c5.3,2.6,9.7,6.1,13.2,10.5s6.1,9.6,7.8,15.5c1.7,5.9,2.5,12.3,2.5,19.2c0,10.5-1.9,20.4-5.8,29.8s-9.2,17.5-15.9,24.4s-14.6,12.4-23.7,16.4c-9.1,4-19,6-29.7,6c-1.4,0-3.8,0-7.2-0.1c-3.4-0.1-7.3-0.4-11.8-1s-9.1-1.5-14-2.7c-4.9-1.2-9.6-2.9-14-5l39.5-165.8l35.4-5.5l-14.1,58.9c3-1.4,6.1-2.4,9.1-3.2C330.6,81.7,333.9,81.3,337.4,81.3z M307.8,178.9c5.3,0,10.3-1.3,15.1-3.9c4.7-2.6,8.8-6,12.2-10.4c3.4-4.3,6.1-9.2,8.1-14.7c2-5.5,3-11.2,3-17.1c0-7.3-1.2-13-3.6-17.1c-2.4-4.1-6.9-6.2-13.5-6.2c-2.1,0-4.9,0.4-8.3,1.1c-3.4,0.8-6.5,2.4-9.2,4.8L296.4,178c0.9,0.1,1.7,0.3,2.4,0.5c0.7,0.1,1.4,0.3,2.2,0.3c0.8,0.1,1.7,0.1,2.7,0.1C304.7,178.9,306.1,178.9,307.8,178.9z"/><path d="M434.1,206.1c-10.8,0-19.3-1.4-25.4-4.2c-6.2-2.8-10.6-6.6-13.2-11.5s-4-10.5-3.9-16.8c0.1-6.3,1-13,2.6-20.2l29-121.1l35.4-5.5l-31.7,131.4c-0.6,2.7-1,5.3-1,7.5s0.3,4.3,1.3,6c0.9,1.8,2.5,3.2,4.7,4.2c2.2,1.1,5.3,1.8,9.2,2L434.1,206.1z"/><path d="M485.5,203.8h-33.8l28.5-120h34L485.5,203.8z"/><path d="M539.3,89.3c2.6-0.8,5.4-1.6,8.5-2.6c3.1-1,6.6-1.9,10.5-2.7c3.9-0.8,8.2-1.5,13-2.1c4.8-0.5,10.2-0.8,16.3-0.8c17.9,0,30.3,5.2,37,15.5c6.7,10.3,7.8,24.5,3.4,42.4l-15.5,64.8h-34l15.1-63.4c0.9-3.9,1.6-7.8,2.2-11.5c0.5-3.7,0.5-7-0.1-9.8c-0.6-2.8-2-5.1-4.2-6.8c-2.2-1.8-5.6-2.6-10.2-2.6c-4.4,0-8.9,0.5-13.5,1.4l-22.1,92.8h-34L539.3,89.3z"/><path d="M684.1,127.1c9.1-7.3,17.7-14.8,25.8-22.4c8.1-7.6,15-14.6,20.8-21H769c-8.5,9.4-17.4,18.7-26.6,27.7s-19.7,18.7-31.6,28.9c3.2,4,6.4,8.5,9.7,13.7c3.3,5.2,6.4,10.6,9.3,16.2c3,5.6,5.7,11.3,8.2,17.1c2.5,5.8,4.6,11.3,6.3,16.4h-37.9c-1.4-4-3.1-8.3-5.1-13s-4.3-9.4-6.8-14c-2.5-4.6-5.1-9.2-7.9-13.6s-5.5-8.4-8.2-11.9l-12.8,52.5h-33.8L673,32.3l35.4-5.5L684.1,127.1z"/><path d="M526.2,47.6c0,3.2-0.6,6.1-1.8,8.8c-1.2,2.7-2.8,5.1-4.9,7.2c-2.1,2-4.5,3.6-7.3,4.9c-2.8,1.2-5.8,1.8-8.9,1.8c-3.2,0-6.1-0.6-8.9-1.8c-2.8-1.2-5.2-2.8-7.2-4.9c-2-2-3.7-4.4-4.9-7.2c-1.2-2.7-1.8-5.7-1.8-8.8c0-3.1,0.6-6,1.8-8.8s2.8-5.2,4.9-7.2s4.4-3.7,7.2-4.9c2.8-1.2,5.8-1.8,8.9-1.8s6.1,0.6,8.9,1.8s5.2,2.8,7.3,4.9c2.1,2,3.7,4.4,4.9,7.2S526.2,44.5,526.2,47.6z"/></g></svg>
+    <div class="meta">Internal memo<br>25 July 2026</div>
+  </div>
+
+  <p class="eyebrow">Category</p>
+  <h1>The document title, stated plainly</h1>
+  <p class="lead">A lead paragraph in 20px that summarizes the whole document in two sentences. If a reader stops here, they should still know the conclusion.</p>
+
+  <h2>First section</h2>
+  <p>Body copy at 16px with 1.5 line height. Paragraphs never exceed roughly 70 characters per line, which keeps them readable at this size. Left aligned, ragged right — never justified.</p>
+  <ul>
+    <li>Bulleted points use the same 16px size</li>
+    <li>Keep each to one line where possible</li>
+    <li>Sentence case, no terminal periods on fragments</li>
+  </ul>
+
+  <div class="callout">
+    <p><strong>A callout</strong> uses the surface color and a 16px radius. Use it for context a reader can skip, or for a definition.</p>
+  </div>
+
+  <h2>Numbers</h2>
+  <div class="stats">
+    <div><span class="stat__value">174k</span><span class="stat__label">Sats moved</span></div>
+    <div><span class="stat__value">$245.86</span><span class="stat__label">Average balance</span></div>
+    <div><span class="stat__value">12</span><span class="stat__label">Countries</span></div>
+  </div>
+
+  <table>
+    <thead><tr><th>Item</th><th>Value</th><th>Change</th></tr></thead>
+    <tbody>
+      <tr><td>First row</td><td>174,726 SAT</td><td>+12%</td></tr>
+      <tr><td>Second row</td><td>$154.42</td><td>+4%</td></tr>
+      <tr><td>Third row</td><td>$69.42</td><td>−2%</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout--accent">
+    <p><strong>The one thing to remember.</strong> Gradient callouts always take black text — white on orange fails contrast. Use these sparingly, once per document at most.</p>
+  </div>
+
+  <h2>Next steps</h2>
+  <ol>
+    <li>An action, with an owner</li>
+    <li>Another action, with a date</li>
+  </ol>
+
+  <p><a class="btn" href="#">Primary action</a></p>
+
+  <footer>
+    <span>Blink — The Everyday Bitcoin Wallet</span>
+    <span>blink.sv</span>
+  </footer>
+
+</div>
+
+<script>
+const b=document.querySelectorAll('.toggle button');
+b.forEach(x=>x.addEventListener('click',()=>{
+  document.documentElement.setAttribute('data-theme',x.dataset.t);
+  b.forEach(y=>y.setAttribute('aria-pressed',String(y===x)));
+}));
+</script>
+</body>
+</html>
