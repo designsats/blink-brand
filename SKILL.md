@@ -21,7 +21,7 @@ Blink deliberately runs **two type systems**. Pick the right one before you writ
 | **What** | decks, slides, web, social, print, merch, docs, diagrams | the Blink mobile app |
 | **Typeface** | **IBM Plex Sans** | **Source Sans Pro** |
 | **Type scale** | 68 / 38 / 24 / 20 / 16 / 14 | 24 / 20 / 18 / 16 / 14 / 12 |
-| **Primary orange** | `#f18a00` brand, `#fc5805` accent | `#fc5805` light, `#ffad0d` dark |
+| **Primary orange** | `#f18a00` brand, `primary` for UI | `primary` `#fc5805` light, `#ffad0d` dark |
 | **Blue** | `#5D78DA` | legacy app blues — do not copy |
 
 Almost everything you are asked for is a **brand surface**. Use IBM Plex Sans unless you
@@ -37,21 +37,25 @@ BRAND
   blue            #5D78DA    brand surfaces only
   black           #000000    Venta black                  Pantone Process Black
 
-ACCENT (UI actions: buttons, links, active states)
-  accent          #fc5805    light mode
-  accent          #ffad0d    dark mode
+PRIMARY (UI actions: buttons, links, active states) — mirrored between themes
+  primary         #fc5805 light   #ffad0d dark
+  primary3        #fd800b         #fe990d
+  primary4        #fe990d         #fd800b
+  primary5        #ffad0d         #fc5805
 
 FEEDBACK
-  error           #DC2626      warning  #F59E0B      success  #00A700
+  error  #DC2626    error9  #FEE2E2 light / #7F1D1D dark
+  warning #F59E0B   _green (success) #00A700
 
-NEUTRAL — light mode              NEUTRAL — dark mode
-  bg.default      #FFFFFF          bg.default      #1d1d1d
-  bg.surface      #F2F2F4          bg.surface      #2B2B2B
-  bg.raised       #E7E7E7          bg.raised       #393939
-  text.primary    #1d1d1d          text.primary    #FAF9F9
-  text.secondary  #3A3C51          text.secondary  #E9E8E8
-  text.muted      #9292A0          text.muted      #949494
-  border          #E2E2E4          border          #393939
+GREY — the number is the role, not the lightness
+                    light      dark
+  grey0  text       #3A3C51    #FAF9F9
+  grey1  text 2nd   #393939    #E9E8E8
+  grey2  muted      #9292A0    #CCCCCC
+  grey3  disabled   #AEAEB8    #949494
+  grey4  border     #E2E2E4    #393939
+  grey5  ground     #F2F2F4    #1d1d1d
+  grey6  raised     #E7E7E7    #2B2B2B
 
 GRADIENT
   linear-gradient(45deg, #ffbe0b, #fb5607)
@@ -101,8 +105,10 @@ re-download from elsewhere, never trace from a screenshot.
 - Minimum size 50px wide for the horizontal lockup.
 - On dark backgrounds use `-on-dark.svg`; on photography or busy backgrounds use
   `blink-logo-mono-white.svg`.
-- The standalone circle mark (`blink-mark.svg`) is allowed **only** as an app icon,
-  favicon, avatar or social profile image — never as a logo in a layout.
+- The standalone circle mark is allowed **only** as an app icon, favicon, avatar or
+  social profile image — never as a logo in a layout.
+- For the app icon, favicon and avatar use `blink-app-icon-dark.svg`: the gradient
+  mark on a **black** tile. There is one app icon and no light variant.
 
 **Never**
 - Never recolor the wordmark. It is black `#000000` or white `#FFFFFF`, nothing else.
@@ -111,6 +117,11 @@ re-download from elsewhere, never trace from a screenshot.
 - Never add effects — no shadow, glow, outline, bevel.
 - Never place text or graphics inside the clear space.
 - Never rebuild the lockup by typing "blink" in Ubuntu next to a bitcoin symbol.
+- Never place the full-colour lockup on orange or on the gradient — the circle
+  vanishes into the ground. Use `blink-logo-mono-white.svg` there.
+- Never bake a light or coloured tile behind the app icon.
+- **There is no Spanish tagline lockup.** The tagline exists in English only; do not
+  translate, transliterate or re-set it in any market.
 
 Construction diagrams, the tagline lockup and every prohibited case:
 `references/logo.md`
@@ -125,10 +136,20 @@ sections, 20 between blocks, 10 within a block.
 large (cards, modals, panels, image crops), `999` for pills, buttons and avatars.
 Nothing else. Blink buttons are pills.
 
-**Icons** — Phosphor, Regular weight. Bold only for emphasis at small sizes. When an
-icon you need doesn't exist in Phosphor, draw it on Phosphor's grid: 256×256 box,
-16px stroke, round caps and joins, so it sits invisibly alongside the set.
-Never mix Phosphor with Material, Font Awesome or emoji-as-icons.
+**Icons** — Phosphor, **outlines only**. Blink uses three of Phosphor's six weights —
+`thin · regular · bold` — the same three the Figma `Icon` set and the app's `IconWeight`
+union ship. **Fill and Duotone are never Blink**, and neither is Light. Default to
+Regular. Pick from the icons the wallet already has: the Figma `Icon` set, mirrored by
+`phosphor-react-native` — don't pull a fresh glyph off phosphoricons.com. When the set
+genuinely lacks something, draw an outline on Phosphor's grid: 256×256 box, 16px stroke,
+round caps and joins, so it sits invisibly alongside the set. Never mix Phosphor with
+Material, Font Awesome or emoji-as-icons. Icons take `currentColor` — they are never
+multi-coloured and never carry the gradient. Safe picks and the custom-SVG exceptions:
+`references/layout.md`.
+
+**Decoration** — the gradient appears as a *surface* (a hero, a card, a sticker), never
+as a decorative rule. Do not put a gradient bar, stripe or rail across the top of a
+page, slide or section. Dynamic shapes belong on hero sections; subpages carry nothing.
 
 **Imagery** — documentary photography of real people using Blink in real places.
 Natural light, candid, the moment of paying or receiving. Never stock crypto clichés:
@@ -138,6 +159,9 @@ neutral device frame.
 
 Full specs including the pattern tile and screenshot sample data:
 `references/layout.md` and `references/imagery.md`
+
+Sticker sizes and cut lines, garment placements, embroidery minimums and printed QR
+rules: `references/merch.md`
 
 ## Language
 
@@ -179,12 +203,32 @@ Full inventory with counts and locations: `references/non-conforming.md`
 
 ## Components
 
-**Not yet documented — open, to be completed in the next session.** The Blink component
-library (buttons, cards, inputs, modals, nav, toasts, badges) lives in Figma and in
-`app/components/` in the `blink-mobile` repo, and has not yet been specified here.
+Specified in `references/components.md` — ten components reconciled across the Figma
+library, `app/components/`, and blink.sv, with **23 flagged conflicts**. Read it before
+building any Blink UI.
 
-Until it is: build components from the tokens above — pill buttons, `16` radius cards,
-`8` radius inputs, `20` internal padding — and say clearly in your output that component
-specs are provisional. Do not invent component rules and present them as canonical.
+The three things that catch people out:
 
-See `references/components.md` for the current status and what's needed.
+- **The entire Figma component library is drawn in dark mode.** Every fill in Figma is a
+  dark-mode value. `#FFAD0D` is `primary` in dark, not "the orange". Light-mode component
+  values are derived, not designed — there is no light-mode library.
+- **Button labels are black, in both themes.** The app's light-mode primary button ships
+  white-on-orange at **3.21:1** and fails AA. It does that because the app's dark theme
+  inverts the `white` token, not by choice. Black gives 6.54:1.
+- **Buttons are pills, inputs are `8`, cards are `16`.** Figma's actual radii run
+  `6, 10, 12, 20, 22, 25`; the app adds `50` and `100`. Use the three-value scale.
+
+Quick reference:
+
+| Element | Spec |
+|---|---|
+| Button, primary | `radius.full`, `primary` fill, **black** label, 700/20px, `14`/`20` padding |
+| Button, secondary | `radius.full`, **no border**, transparent, `primary` label |
+| Card | `radius.lg` (16), `grey6`, `20` padding |
+| Input | `radius.sm` (8), no border at rest, coloured border for error/success |
+| Chip / pill | `radius.full`, `5`/`10` padding, 14px |
+| Bottom sheet | `radius.lg` top corners only, pull tab `26×3` |
+| QR | always on **white**, `28` quiet zone, `radius.lg`, error correction ≥ `M` with a logo |
+
+Still open there: tone of voice, Dollar vs Stablesats, pure black in navigation chrome,
+and the absence of a canonical amount component.

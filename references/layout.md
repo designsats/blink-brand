@@ -64,24 +64,51 @@ One shadow. No layered shadow stacks, no colored shadows, no glow.
 
 ## Icons
 
-**Phosphor Icons**, Regular weight. Open source (MIT), available as a web font, SVG
+**Phosphor Icons, outlines only.** Open source (MIT), available as a web font, SVG
 set, React package and Figma library.
 
-- Regular weight by default. **Bold** only for emphasis at 16px and below.
+Phosphor publishes six weights. Blink uses **three, all of them outlines** — the same
+three the wallet ships. The Figma `Icon` component set (`38:9749`) is built at
+`weight = thin | regular | bold`, and the app's `IconWeight` union in
+`app/components/atomic/galoy-icon/galoy-icon.tsx` is the identical three.
+
+- **Fill and Duotone are never used.** Not in the app, not in Figma, not on a slide.
+  A solid or two-tone glyph is off-brand wherever it appears. Thin and Light are also
+  not interchangeable — Light is not one of the three.
+- **Regular by default.** Thin for dense UI at 24px+, Bold for emphasis at 16px and below.
+- **Pick from the icons the wallet already has** — the Figma `Icon` set, mirrored by
+  `phosphor-react-native`. Do not pull a fresh glyph off phosphoricons.com just because
+  it exists there.
 - Size icons on the type they sit beside: 16px icon with 14–16px text, 20px with
   20px text, 24px with 24px+.
 - Icon color matches the text it labels. An icon is not an opportunity for accent color.
 - Never mix icon sets. No Material, no Font Awesome, no Heroicons, no emoji as icons.
 
+### The wallet set — safe picks
+
+Every name below is in both the Figma `Icon` set and `phosphor-react-native`, so it is
+safe on any surface. Phosphor component names:
+
+| Group | Icons |
+|---|---|
+| Navigation | `House` `List` `MagnifyingGlass` `MapTrifold` `CaretRight` `ArrowLeft` `GearSix` `X` |
+| Money | `Wallet` `Coins` `CurrencyDollar` `Bank` `ArrowsDownUp` `Storefront` `Calculator` `ChartLine` |
+| Payments | `QrCode` `Lightning` `Link` `Copy` `Clock` `Check` `CheckCircle` `Note` |
+| Account and state | `User` `Users` `Eye` `EyeSlash` `Bell` `Shield` `Key` `Warning` |
+
+The full set runs to ~70 shared names — read `phosphorIconMap` in `galoy-icon.tsx` for
+the rest. Bitcoin, send, receive, upgrade and the payment-status marks are **custom
+Blink SVGs**, not Phosphor; take those from `app/assets/icons-redesign/`.
+
 ### Custom icons
 
-When Phosphor genuinely lacks what you need, draw it to Phosphor's spec so it sits
+When the wallet set genuinely lacks what you need, draw it to Phosphor's spec so it sits
 invisibly alongside the set:
 
 - 256 × 256 viewBox
 - 16px stroke weight (Regular) — equals 1.5px at 24px display size
 - Round caps, round joins
-- Stroke, not fill, unless the Phosphor equivalent is filled
+- An outline, never a filled or two-tone glyph
 - Align to the same optical bounds — Phosphor glyphs sit in roughly a 224px optical box
 
 Custom icons go in the brand asset library, not inline in one deck.

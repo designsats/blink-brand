@@ -35,75 +35,89 @@ brand surfaces — hero sections, title slides, cards, social backgrounds.
 > from the logo's creation and refers to the logo's internal construction — the
 > wordmark must not carry a gradient. It does not restrict gradient use on surfaces.
 
-## UI accent
+## Naming
 
-The interactive color. Buttons, links, active states, focus rings, selected items.
+Use the variable names from `app/rne-theme/colors.ts`. A value looked up in this file
+can then be used in code without translation, and a value seen in code can be found
+here. Underscore-prefixed names (`_primary1`, `_black`) are the raw palette and never
+change with the theme.
 
-| Mode | Hex |
-|---|---|
-| Light | `#fc5805` |
-| Dark | `#ffad0d` |
+## primary — the interaction ramp
 
-This differs from Bitcoin orange `#f18a00` on purpose. Bitcoin orange is the identity
-color; the accent is the interaction color. Do not substitute one for the other.
+Buttons, links, active states, focus rings, selected items. The ramp is **mirrored**
+between themes, which is why `primary` in light equals `primary5` in dark.
 
-## Neutrals
-
-| Role | Light | Dark |
+| Variable | Light | Dark |
 |---|---|---|
-| `bg.default` | `#FFFFFF` | `#1d1d1d` |
-| `bg.surface` | `#F2F2F4` | `#2B2B2B` |
-| `bg.raised` | `#E7E7E7` | `#393939` |
-| `text.primary` | `#1d1d1d` | `#FAF9F9` |
-| `text.secondary` | `#3A3C51` | `#E9E8E8` |
-| `text.muted` | `#9292A0` | `#949494` |
-| `border` | `#E2E2E4` | `#393939` |
+| `primary` | `#fc5805` | `#ffad0d` |
+| `primary3` | `#fd800b` | `#fe990d` |
+| `primary4` | `#fe990d` | `#fd800b` |
+| `primary5` | `#ffad0d` | `#fc5805` |
 
-Dark surfaces are `#1d1d1d`, not pure black. Venta black `#000000` is reserved for the
-wordmark and for print. Do not build dark backgrounds out of `#000000`.
+`primary` differs from Bitcoin orange `#f18a00` on purpose. Bitcoin orange is the
+identity color, used in the logo and in print; `primary` is the interaction color.
+Do not substitute one for the other.
+
+## grey0 – grey6
+
+**The number tracks the role, not the lightness.** `grey0` is always the strongest
+text and `grey5` is always the ground, which is why the hexes invert between themes
+and the names do not. Never pick a grey by how light it looks; pick it by what the
+element is.
+
+| Variable | Role | Light | Dark |
+|---|---|---|---|
+| `grey0` | Primary text | `#3A3C51` | `#FAF9F9` |
+| `grey1` | Secondary text | `#393939` | `#E9E8E8` |
+| `grey2` | Muted text, placeholders | `#9292A0` | `#CCCCCC` |
+| `grey3` | Disabled, hints | `#AEAEB8` | `#949494` |
+| `grey4` | Borders and dividers | `#E2E2E4` | `#393939` |
+| `grey5` | The ground | `#F2F2F4` | `#1d1d1d` |
+| `grey6` | Raised surfaces — cards, sheets | `#E7E7E7` | `#2B2B2B` |
+
+Dark surfaces are `#1d1d1d`, not pure black. Venta black `_black` `#000000` is reserved
+for the wordmark and for print. Do not build dark backgrounds out of `#000000`.
+
+Dark mode is **not an inversion**: the dark ground is not black and the dark accent is
+a *lighter* orange than the light one. Flipping the light palette produces neither.
 
 ## Feedback
 
-| Role | Hex | Light bg | Dark bg |
+| Variable | Hex | Light bg | Dark bg |
 |---|---|---|---|
-| Error | `#DC2626` | `#FEE2E2` | `#7F1D1D` |
-| Warning | `#F59E0B` | `#FFF9E5` | `#7F1D1D` |
-| Success | `#00A700` | — | — |
+| `error` | `#DC2626` | `error9` `#FEE2E2` | `error9` `#7F1D1D` |
+| `warning` | `#F59E0B` | `#FFF9E5` | `#7F1D1D` |
+| `_green` (success) | `#00A700` | — | — |
 
-## Contrast — measured, not assumed
+`warning` is never used as text — it fails contrast at every size on white.
 
-Verified WCAG 2.1 ratios. **Several obvious-looking choices fail.**
+## Contrast — the results that change a decision
 
-| Combination | Ratio | Body text | Large text (≥24px) |
-|---|---|---|---|
-| `#1d1d1d` on white | 16.86:1 | PASS | PASS |
-| `#FAF9F9` on `#1d1d1d` | 16.04:1 | PASS | PASS |
-| `#3A3C51` on white | 10.80:1 | PASS | PASS |
-| Black on Lightning yellow | 12.62:1 | PASS | PASS |
-| Black on turquoise | 14.05:1 | PASS | PASS |
-| Black on Bitcoin orange | 8.38:1 | PASS | PASS |
-| Black on sunset orange | 6.44:1 | PASS | PASS |
-| `#949494` on `#1d1d1d` | 5.56:1 | PASS | PASS |
-| Error `#DC2626` on white | 4.83:1 | PASS | PASS |
-| Blink blue `#5D78DA` on white | 4.07:1 | **FAIL** | PASS |
-| White on Blink blue | 4.07:1 | **FAIL** | PASS |
-| White on sunset orange | 3.26:1 | **FAIL** | PASS |
-| Success `#00A700` on white | 3.22:1 | **FAIL** | PASS |
-| Accent `#fc5805` on white | 3.21:1 | **FAIL** | PASS |
-| `#9292A0` on white | 3.07:1 | **FAIL** | PASS |
-| Warning `#F59E0B` on white | 2.15:1 | **FAIL** | **FAIL** |
+Measured from the token values. The full table used to live here and in the brand book;
+it was more confusing than useful, because only a handful of rows change what you do.
+These are those rows.
 
-### Rules that follow from the table
+| Combination | Ratio | Body text |
+|---|---|---|
+| `warning` `#F59E0B` on white | 2.15:1 | **FAIL at every size** |
+| `grey2` on white | 3.07:1 | **FAIL** |
+| `primary` `#fc5805` on white | 3.21:1 | **FAIL** |
+| `_green` `#00A700` on white | 3.22:1 | **FAIL** |
+| White on sunset orange | 3.26:1 | **FAIL** |
+| Blink blue `#5D78DA` on white | 4.07:1 | **FAIL** |
+| Black on any orange or on the gradient | 6.4–12.6:1 | PASS |
 
-1. **Orange text on white is not accessible at body size.** Use `#1d1d1d` for body copy
+### Rules that follow
+
+1. **Put black on orange, not white.** Every orange surface — buttons, gradient fills,
+   hero blocks — takes Venta black text. (A white logo lockup on the gradient is fine;
+   a logo is not text.)
+2. **Orange text on white is not accessible at body size.** Use `grey0` for body copy
    and reserve orange for headings 24px and above, or for large UI elements.
-2. **Put black on orange, not white.** White on sunset orange fails. Every orange
-   surface — buttons, gradient fills, hero blocks — takes Venta black text.
-   The brand book's white-on-gradient logo lockup is fine because a logo is not text.
-3. **Warning `#F59E0B` is never text.** It fails at every size on white. Use it as a
-   fill or an icon color with a dark label beside it.
-4. **`text.muted` in light mode fails body contrast.** It is for 14px+ secondary labels
-   on a case-by-case basis, never for anything a user must read.
+3. **`warning` is never text.** Use it as a fill or an icon color with a dark label
+   beside it.
+4. **`grey2` fails body contrast in light mode.** It is for 14px+ secondary labels,
+   never for anything a user must read.
 5. **Blink blue needs 24px+** in either direction. Do not set body copy in it.
 
 ## Never

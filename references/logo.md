@@ -13,7 +13,8 @@ reconstruct the logo.
 | `blink-logo-tagline-on-dark.svg` | With tagline, dark backgrounds |
 | `blink-logo-mono-white.svg` | Photography, gradient, busy or colored backgrounds |
 | `blink-logo-mono-white-tagline.svg` | As above, with tagline |
-| `blink-mark.svg` | Circle mark alone — app icon, favicon, avatar only |
+| `blink-app-icon-dark.svg` | **The app icon.** Gradient mark on a black tile. Also favicon and avatar |
+| `blink-mark.svg` | Circle mark alone, light backgrounds — never as a logo in a layout |
 | `blink-mark-on-dark.svg` | Circle mark alone, dark backgrounds |
 | `print/*.svg` | Print-optimized variants. Use for anything going to press |
 | `seasonal/blink-logo-christmas.svg` | Seasonal only. Requires sign-off |
@@ -74,6 +75,18 @@ From the brand book's Prohibited Usage page, plus current practice:
   Blink logo.
 - **Never use the circle mark as a logo in a layout.** It is an app icon, favicon or
   avatar. In a deck, a document or a web header, use the full lockup.
+- **Never put the full-colour lockup on orange or on the gradient.** The circle is made
+  of the same gradient and disappears into the ground. Use the mono white lockup.
+
+## App icon
+
+`blink-app-icon-dark.svg` — the gradient mark on a **black** tile, 512×512, mark at
+roughly 76% of the tile.
+
+There is one app icon. No light variant, no alternate ground, no seasonal swap. The
+black tile is part of the artwork: never replace it with white, with the gradient or
+with a screenshot, and never bake a rounded rectangle into the file — the platform
+applies its own corner radius and mask. The same file serves favicon and avatar.
 
 ## Tagline
 
@@ -81,8 +94,10 @@ From the brand book's Prohibited Usage page, plus current practice:
 lockup, and always as part of the supplied tagline artwork. It is never reworded,
 never abbreviated, and never re-set by hand.
 
-A Spanish lockup exists in the brand book. Localized taglines require design sign-off —
-do not translate it yourself.
+**There is no Spanish tagline lockup, and no localized tagline of any kind.** The 2023
+brand book showed one; it is retired. The tagline is English-only in every market. Do
+not translate it, do not transliterate it, and do not set a translated line of type
+next to the plain lockup as a substitute.
 
 "Blink makes using and learning Bitcoin simple" is **marketing copy**, not the tagline.
 It may be reworded freely and must never appear in the logo lockup.

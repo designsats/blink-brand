@@ -35,15 +35,17 @@ with the brand.
 
 ```
 SKILL.md                    the core rules — always loaded
+blink-brand.html            the brand book, one self-contained page
 references/
   colors.md                 palette, gradient, dark mode, measured contrast
   typography.md             both type systems and when to use each
   logo.md                   assets, clear space, every prohibited use
   layout.md                 spacing, radii, grid, icons, pattern tile
   imagery.md                photography and product-screenshot rules
+  merch.md                  stickers and physical production
   terminology.md            controlled word list
   non-conforming.md         known drift — do not copy from these sources
-  components.md             OPEN — not yet written
+  components.md             buttons, inputs, cards, nav — Figma vs shipped app
 assets/
   tokens.json               machine-readable source of truth
   logo/                     the approved SVGs, incl. print and seasonal
@@ -56,11 +58,20 @@ templates/
 Templates are plain HTML. Open in a browser, then print to PDF or screenshot.
 They need no build step and no internet beyond the Google Fonts link.
 
+## The brand book
+
+`blink-brand.html` is the human-readable brand book — every page A4, fonts and images
+embedded, no network calls. Open it in a browser and print to PDF.
+
+It is generated, not hand-written, and each page is a fixed box that content silently
+overflows. Before republishing it, open it with `?audit` appended to the URL: a `<pre>`
+at the top reports every page that overflows, or `AUDIT CLEAN`.
+
 ## Known gaps
 
-- **Components are not yet specified.** See `references/components.md`.
 - **Tone of voice is TBD.** Claude will write plainly and won't invent a voice.
 - **Dollar vs Stablesats naming is unresolved.**
+- **Light-mode primary button fails contrast** — see `references/components.md`.
 
 ## Keeping it current
 
