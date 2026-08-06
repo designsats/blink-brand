@@ -171,9 +171,31 @@ capitalized. The tagline is **The Everyday Bitcoin Wallet** and is never reworde
 
 Full always/never word list: `references/terminology.md`
 
-**Tone of voice is not yet defined (TBD).** Until it is, write plainly: concrete, second
-person, active voice, no hype, no exclamation marks, no undefined jargon. Do not invent
-a brand voice or claim one exists.
+**Voice.** Blink talks in simple, human language, in short sentences, with the limit
+said out loud.
+
+- **Attach the limit to the claim, in the same breath.** "Dollar Balance helps reduce
+  bitcoin price volatility, but it does not remove all risk." Never a clean claim with
+  the caveat hidden elsewhere on the page.
+- **Write the first message for someone who knows nothing** — plain words, no unexpanded
+  jargon. Put the depth the power user wants behind a **"Learn more"** link, not in the
+  paragraph.
+- Short declaratives. Second person for the reader, "Blink" for the product, "we" for
+  the team. Imperative for anything the reader does.
+- **Eyebrow + heading** on every section — a short framing line, then the heading naming
+  the thing. Never merge them into one clever headline.
+- **Never an exclamation mark in app copy.** On marketing and social they are allowed
+  but must not be over-used — never in a heading, a button, or beside a fee or a risk.
+- No hype verbs — not "unlock", "unleash", "empower". No "magic", no "just", no
+  "newbies", no fear-selling.
+- **Say account, not wallet**, for the reader's holdings — one word that works across
+  the custodial and non-custodial sides. The tagline is unaffected.
+- **Dollar Balance** and **Bitcoin Balance** are the canonical names, in both modes.
+  Never "Dollar Account" or "Bitcoin account". **Stablesats** — one capital S — names
+  the mechanism behind Dollar Balance in Custodial Mode, never the balance itself.
+
+Derived from live blink.sv copy with the evidence for each rule, plus register by
+surface and the open questions: `references/voice.md`
 
 ## Templates
 
@@ -195,6 +217,10 @@ at an existing deck, the live website, or app code for reference, check this lis
   gradient. Purple is not a Blink color. Never reproduce it.
 - **blink.sv uses `#ffb32c`** as its yellow. The correct yellow is `#ffbe0b`.
 - **blink.sv uses five gradient angles.** Only 45° is correct.
+- **blink.sv over-uses exclamation marks and hype** — "Unleash the benefits", "Blink
+  works its magic", "Try it!". Not the voice. See `references/voice.md`.
+- **blink.sv still says "Dollar Account" on older pages.** The canonical names are
+  **Dollar Balance** and **Bitcoin Balance**.
 - **The app has four blues.** None is the brand blue. Do not sample blue from the app.
 - **The app's dark theme inverts `white` and `black` token names** — in dark mode its
   `white` token is `#000000`. Never read raw values out of `colors.ts` without checking.
@@ -230,5 +256,5 @@ Quick reference:
 | Bottom sheet | `radius.lg` top corners only, pull tab `26×3` |
 | QR | always on **white**, `28` quiet zone, `radius.lg`, error correction ≥ `M` with a logo |
 
-Still open there: tone of voice, Dollar vs Stablesats, pure black in navigation chrome,
-and the absence of a canonical amount component.
+Still open there: pure black in navigation chrome, and the absence of a canonical amount
+component.

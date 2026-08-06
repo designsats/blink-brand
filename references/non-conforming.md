@@ -139,6 +139,88 @@ The wordmark in the artwork is filled `#010101`, not Venta black `#000000`. This
 Illustrator artifact and is visually identical. Do not "fix" it, and do not use
 `#010101` as a token — Venta black is `#000000`.
 
+## blink.sv — copy drift
+
+Audited 2026-08-06 against the live English marketing site. See `references/voice.md`
+for the voice these depart from. The pages rewritten for the custodial / non-custodial
+split (`/send-and-receive`, `/security`, `/dollar-balance`) are largely clean; the drift
+is concentrated in the older pages.
+
+### Exclamation marks — over-used
+
+Marketing copy may use them; the rule is not to over-use them, and never in a heading, a
+button label or next to a fee or a risk. **App copy takes none at all.** The site is well
+past the line:
+
+> "Zero fees Blink-to-Blink!" · "Intraledger (between Blink users) – no fee!" ·
+> "Lightning Address – like an email for receiving sats!" · "Try it!" ·
+> "Start building!" · "Version 2 coming soon!" · "And on, and on!" ·
+> "Welcome newbies to grow your circles!" · "Find places to spend sats!"
+
+### Hype language
+
+Concentrated on `/api` and `/circles`:
+
+> "Unlock the power of the Lightning Network quickly and reliably" ·
+> "Unleash the benefits of Bitcoin & Lightning" ·
+> "in just minutes!" · "Laser-focused on Bitcoin applications" ·
+> "the magic of Bitcoin and Lightning" ·
+> "the best money on earth (Bitcoin, of course)" *(home)* ·
+> "Blink works its magic by automatically boosting your transaction's fee"
+> *(`/send-and-receive`)*
+
+### "newbies"
+
+> "Another reason why Blink is a perfect wallet to recommend to newbies." *(`/features`)*
+> "Welcome newbies to grow your circles!" *(`/circles`)*
+
+Also `/features`: "The best first bitcoin wallet for newbies".
+
+### Dollar Account — drift against the canonical name
+
+**Dollar Balance** and **Bitcoin Balance** are canonical (`terminology.md`). The site
+still uses "Dollar Account" on older pages, and which name appears depends on which page
+you are on:
+
+| Page | Nav label | Body usage |
+|---|---|---|
+| `/`, `/security`, `/send-and-receive`, `/dollar-balance` | Dollar Balance | Dollar Balance |
+| `/features`, `/api`, `/circles` | Dollar Account | "dollar account", "Dollar Account" |
+
+`/dollar-balance` already states the rule: *"In both modes, the user-facing feature name
+is Dollar Balance."* `/features` still links to `/en/dollar-account` and `/api` still
+says "Bitcoin to Dollar account conversions".
+
+Every "Dollar Account" and "Bitcoin account" on the site is drift and should be
+retitled. Do not copy either form, and do not write new copy that uses them.
+
+### on-chain vs onchain on the same page
+
+`/send-and-receive` uses both: the heading "On-chain bitcoin payments" and the meta
+description "Send and receive bitcoin on Lightning, onchain, and Spark."
+`terminology.md` fixes this as **on-chain**.
+
+### "Not your keys, not your coins" vs "not your Bitcoin"
+
+Home page FAQ: *"Not your keys, not your coins – What does it mean?"*
+`/security` kicker: *"Not your keys, not your Bitcoin"*
+
+Same aphorism, two forms, no decision recorded.
+
+### Tagline case
+
+Home page H1 renders the tagline sentence case — "The everyday Bitcoin wallet" — while
+`terminology.md` and `SKILL.md` fix it as **The Everyday Bitcoin Wallet** (and
+`THE EVERYDAY BITCOIN WALLET` in the lockup). The H1 also carries a stray double space.
+
+### /security — duplicated body copy
+
+"Multi-sig cold storage" and "Backup phrase managment" ship the **identical paragraph**
+("Blink offers a Lightning wallet backed by reserve cold storage…"). The second section
+does not describe backup phrases at all, and its heading is misspelled — "managment".
+
+Do not lift copy from this page.
+
 ## Dead assets
 
 - **DM Sans Bold** in `app/assets/fonts/` — referenced nowhere. Not a Blink typeface.

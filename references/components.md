@@ -491,10 +491,12 @@ colour.** `#00A700` is `feedback.success` everywhere else. A green pill that mea
 "Dollar account" and a green bar that means "success" in the same app is a collision.
 Flagged, not resolved.
 
-> **OPEN — Dollar vs Stablesats.** Figma labels the variant `Dollar`; the app has
-> `stablesats-modal`, `usd-convert-to-btc-modal` and `dollar-balance-migration-modal`
-> side by side, and `currency-pill.tsx` calls the same thing `Dollar`. **This naming is
-> not decided. Do not standardise it in either direction.**
+> **SETTLED — Dollar Balance and Bitcoin Balance.** The user-facing names are
+> **Dollar Balance** and **Bitcoin Balance**, in both modes. Figma labels the variant
+> `Dollar` and the app has `stablesats-modal`, `usd-convert-to-btc-modal` and
+> `dollar-balance-migration-modal` side by side — internal identifiers may stay as they
+> are, but **every user-visible string reads Dollar Balance**. Stablesats names the
+> mechanism, never the balance. See `references/terminology.md`.
 
 ---
 
@@ -677,10 +679,11 @@ indicator.
 
 ## Still open — do not invent answers
 
-- **Tone of voice — TBD.** `references/terminology.md` covers words, not voice. Until it
-  is defined, write plainly: concrete, second person, active, no hype, no exclamation
-  marks. Do not claim a Blink voice exists.
-- **Dollar vs Stablesats.** Both names ship, in the same flows. Undecided. See §8.2.
+- **Voice for in-app strings.** `references/voice.md` is derived from marketing copy on
+  blink.sv and explicitly does not cover app strings. Until the app is audited, apply
+  the marketing rules — short declaratives, second person, the limit attached to the
+  claim — and do not assume they are the app's own register. **No app string carries an
+  exclamation mark.**
 - **Pure black in navigation chrome.** The tab bar and bottom sheet are `#000000` against
   a token that reserves `#000000` for the wordmark and print. Needs a ruling. See §4.1.
 - **No canonical amount component.** Nine implementations, no base. See §9.2.

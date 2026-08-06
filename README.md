@@ -44,6 +44,7 @@ references/
   imagery.md                photography and product-screenshot rules
   merch.md                  stickers and physical production
   terminology.md            controlled word list
+  voice.md                  how Blink sounds, derived from live blink.sv copy
   non-conforming.md         known drift — do not copy from these sources
   components.md             buttons, inputs, cards, nav — Figma vs shipped app
 assets/
@@ -69,9 +70,11 @@ at the top reports every page that overflows, or `AUDIT CLEAN`.
 
 ## Known gaps
 
-- **Tone of voice is TBD.** Claude will write plainly and won't invent a voice.
-- **Dollar vs Stablesats naming is unresolved.**
+- **Voice covers marketing surfaces only.** `references/voice.md` was derived from
+  blink.sv. In-app strings, the blog, the FAQ and the Spanish locale were not audited.
 - **Light-mode primary button fails contrast** — see `references/components.md`.
+- **blink.sv and the app still say "Dollar Account"** in places. *Dollar Balance* and
+  *Bitcoin Balance* are canonical; the surfaces have not all caught up.
 
 ## Keeping it current
 
