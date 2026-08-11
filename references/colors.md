@@ -2,19 +2,20 @@
 
 ## Brand palette
 
-These five are the brand. They appear in the logo, in print, and on brand surfaces.
+These four are the brand. They appear in the logo, in print, and on brand surfaces.
 
 | Name | Hex | CMYK | Pantone | Use |
 |---|---|---|---|---|
 | Bitcoin orange | `#f18a00` | 0 / 54 / 100 / 0 | 144 C | Logo, print, gradient endpoint |
 | Sunset orange | `#fb5607` | 0 / 76 / 95 / 0 | Orange 021 C | Gradient endpoint, large fills |
 | Lightning yellow | `#ffbe0b` | 0 / 29 / 92 / 0 | 123 C | Gradient endpoint, highlights |
-| Blink blue | `#5D78DA` | — | — | Brand surfaces only |
 | Venta black | `#000000` | 0 / 0 / 0 / 100 | Process Black | Wordmark, print |
 
-Turquoise `#3de8f4` (Pantone 3105 C) is a **limited accent**. Allowed in illustration
-and data visualization only. Never on UI, never on type, never as a background, never
-on a button.
+There is no blue and no turquoise in the palette. The brand book's colour pages show
+only the oranges, black and the greys — earlier drafts listed a "Blink blue" `#5D78DA`
+and a turquoise `#3de8f4`, but `#5D78DA` was only ever the editorial rule on the book's
+own "new since 2023" notes, and turquoise appears nowhere. Neither is a Blink colour;
+do not use them.
 
 ## The gradient
 
@@ -104,7 +105,6 @@ These are those rows.
 | `primary` `#fc5805` on white | 3.21:1 | **FAIL** |
 | `_green` `#00A700` on white | 3.22:1 | **FAIL** |
 | White on sunset orange | 3.26:1 | **FAIL** |
-| Blink blue `#5D78DA` on white | 4.07:1 | **FAIL** |
 | Black on any orange or on the gradient | 6.4–12.6:1 | PASS |
 
 ### Rules that follow
@@ -118,14 +118,14 @@ These are those rows.
    beside it.
 4. **`grey2` fails body contrast in light mode.** It is for 14px+ secondary labels,
    never for anything a user must read.
-5. **Blink blue needs 24px+** in either direction. Do not set body copy in it.
 
 ## Never
 
 - Never use purple. blink.sv currently ships an Untitled UI purple kit — it is a defect,
   see `non-conforming.md`.
 - Never use `#ffb32c`. It is the site's incorrect yellow; the correct one is `#ffbe0b`.
-- Never sample a blue from the app. It has four, none of them the brand blue.
+- Never sample a blue from the app. It has four, none of them a Blink colour — blue is
+  not a Blink colour at all.
 - Never generate tints or shades by lightening or darkening a brand color. If you need a
   lighter surface, use the neutral ramp.
 - Never use a color at partial opacity to fake a tint, except for the two documented

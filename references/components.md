@@ -383,9 +383,9 @@ Radius `6px`, padding `10px 10px 10px 14px`, width `316`, text 12px/400.
 
 ⚠ **CONFLICT — radius `6px` is off-scale** and is the only `6` in the library. Use `8`.
 
-⚠ **CONFLICT — `#4453E2` is not a Blink blue.** It is the app's `blue5` light value. The
-brand blue is `#5D78DA`, which is brand-surface-only and *not in the app*. So the light
-info box uses a fourth blue. See `references/non-conforming.md` — "the app has four blues".
+⚠ **CONFLICT — `#4453E2` is not a Blink color.** It is the app's `blue5` light value, a
+fourth app blue. Blue is not a Blink color at all, so this info box has no on-brand fill —
+flag it for redesign. See `references/non-conforming.md` — "the app has four blues".
 
 ⚠ **CONFLICT — bar width.** Figma `2px`; app `3px`
 ([galoy-info.tsx:54](app/components/atomic/galoy-info/galoy-info.tsx#L54)). ⚠ Padding also differs: app `8px / 6px` vs Figma `10px / 14px`.
@@ -668,7 +668,7 @@ indicator.
 | 15 | bottom-bar | `#BDBDBD` (Figma, web) vs `#CCCCCC` (app dark `grey2`) |
 | 16 | bottom-sheet | Radius 20 vs system 16; fill `#000000` |
 | 17 | info | Radius 6 (only `6` in the library); bar 2px vs 3px; padding differs |
-| 18 | info | `#4453E2` is a fourth blue, not the brand blue |
+| 18 | info | `#4453E2` is a fourth app blue; blue is not a Blink color |
 | 19 | banners | `bulletin-row` (Figma) vs five unrelated app banners |
 | 20 | Badge | 10px type, below every documented floor; radius 12 |
 | 21 | currencyPill | Dollar white-on-green 3.22:1; green doubles as `feedback.success` |

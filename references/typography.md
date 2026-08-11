@@ -51,7 +51,7 @@ Light 300 · Regular 400 · Medium 500 · SemiBold 600 · Bold 700
 - Line length 45–75 characters. Constrain paragraph width; never let copy run full-bleed.
 - Sentence case for headings. Not Title Case. Not ALL CAPS.
 - The only permanent all-caps string is the tagline: `THE EVERYDAY BITCOIN WALLET`.
-- Never letterspace body text. Headings may take `-0.01em` at 38px and above.
+- Never letterspace body text. Headings may take `-0.015em` at 38px and above.
 - Never justify. Left-aligned, ragged right. Centered only on title slides.
 - Never use more than three sizes on a single slide.
 - Numbers in tables and financial figures use tabular figures:

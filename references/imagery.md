@@ -67,7 +67,6 @@ Blink has no illustration system yet. If illustration is genuinely required:
 - Build from the pattern tile's line-icon vocabulary — same stroke weight, same
   geometric construction
 - Monochrome or the brand palette only
-- Turquoise `#3de8f4` is permitted here, and here is essentially the only place it is
 
 Do not introduce a third-party illustration pack, and do not generate illustration in a
 style that has no relationship to the rest of the system.

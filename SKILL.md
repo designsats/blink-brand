@@ -22,10 +22,13 @@ Blink deliberately runs **two type systems**. Pick the right one before you writ
 | **Typeface** | **IBM Plex Sans** | **Source Sans Pro** |
 | **Type scale** | 68 / 38 / 24 / 20 / 16 / 14 | 24 / 20 / 18 / 16 / 14 / 12 |
 | **Primary orange** | `#f18a00` brand, `primary` for UI | `primary` `#fc5805` light, `#ffad0d` dark |
-| **Blue** | `#5D78DA` | legacy app blues — do not copy |
 
 Almost everything you are asked for is a **brand surface**. Use IBM Plex Sans unless you
 are writing code inside the `blink-mobile` repo.
+
+There is no blue and no turquoise in Blink's palette — Blink is orange, black and grey.
+The app ships several blues and the brand book's editorial notes use a `#5D78DA` rule,
+but none of those is a brand colour. Never introduce blue or turquoise.
 
 ## Core tokens — memorize these
 
@@ -34,7 +37,6 @@ BRAND
   orange          #f18a00    logo, print, gradient        Pantone 144 C
   yellow          #ffbe0b    logo, gradient               Pantone 123 C
   sunset          #fb5607    gradient                     Pantone Orange 021 C
-  blue            #5D78DA    brand surfaces only
   black           #000000    Venta black                  Pantone Process Black
 
 PRIMARY (UI actions: buttons, links, active states) — mirrored between themes
@@ -71,7 +73,7 @@ Full palette with usage rules, contrast pairs and dark-mode logic:
 ## Typography — brand surfaces
 
 **IBM Plex Sans.** Free, open source, from Google Fonts. Never substitute Arial,
-Helvetica, Inter or a system stack.
+Helvetica, Inter or a system stack. DM Sans is retired — it is not a Blink typeface.
 
 ```
 display   68px / 1.0em   Bold 700       title slides, hero headlines
@@ -89,7 +91,7 @@ Use Light 300 only at 20px and above — it disappears at body size.
 - Line length 45–75 characters. Never full-bleed paragraphs.
 - Sentence case for headings. Not Title Case, not ALL CAPS — except the tagline,
   which is always `THE EVERYDAY BITCOIN WALLET`.
-- Never letterspace body text. Headings may take `-0.01em` at 38px and above.
+- Never letterspace body text. Headings may take `-0.015em` at 38px and above.
 
 Details, the product scale, and the CSS/Google Fonts snippets: `references/typography.md`
 
@@ -140,7 +142,8 @@ Nothing else. Blink buttons are pills.
 `thin · regular · bold` — the same three the Figma `Icon` set and the app's `IconWeight`
 union ship. **Fill and Duotone are never Blink**, and neither is Light. Default to
 Regular. Pick from the icons the wallet already has: the Figma `Icon` set, mirrored by
-`phosphor-react-native` — don't pull a fresh glyph off phosphoricons.com. When the set
+`phosphor-react-native@3.0.3` (the package the app bundles) — don't pull a fresh glyph
+off phosphoricons.com. When the set
 genuinely lacks something, draw an outline on Phosphor's grid: 256×256 box, 16px stroke,
 round caps and joins, so it sits invisibly alongside the set. Never mix Phosphor with
 Material, Font Awesome or emoji-as-icons. Icons take `currentColor` — they are never
@@ -197,17 +200,6 @@ said out loud.
 Derived from live blink.sv copy with the evidence for each rule, plus register by
 surface and the open questions: `references/voice.md`
 
-## Templates
-
-Start from these rather than building from scratch:
-
-- `templates/deck.html` — 16:9 slide deck, all slide types, light/dark/colored
-- `templates/social.html` — square, story and wide social cards
-- `templates/onepager.html` — document / memo / report
-
-Each is self-contained HTML with the tokens inlined. Open in a browser, print to PDF,
-or screenshot for slides.
-
 ## Known non-conforming material
 
 Blink's existing surfaces contain drift. **Do not copy from them** — if you are looking
@@ -221,7 +213,8 @@ at an existing deck, the live website, or app code for reference, check this lis
   works its magic", "Try it!". Not the voice. See `references/voice.md`.
 - **blink.sv still says "Dollar Account" on older pages.** The canonical names are
   **Dollar Balance** and **Bitcoin Balance**.
-- **The app has four blues.** None is the brand blue. Do not sample blue from the app.
+- **The app has four blues.** None is a Blink color — blue is not a Blink color. Do not
+  sample blue from the app.
 - **The app's dark theme inverts `white` and `black` token names** — in dark mode its
   `white` token is `#000000`. Never read raw values out of `colors.ts` without checking.
 

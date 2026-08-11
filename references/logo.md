@@ -50,9 +50,8 @@ Permitted, in order of preference:
 3. Venta black or `#1d1d1d` — `-on-dark` lockup
 4. Lightning yellow `#ffbe0b` — black lockup
 5. The Blink gradient — white lockup
-6. Blink blue `#5D78DA` — white lockup
-7. Light grey — black lockup
-8. Photography — white mono lockup, placed over a calm area of the image
+6. Light grey — black lockup
+7. Photography — white mono lockup, placed over a calm area of the image
 
 Never place the logo on a busy area of a photograph. If no calm area exists, put the
 logo on a solid block adjacent to the image instead.

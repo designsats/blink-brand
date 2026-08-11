@@ -39,7 +39,7 @@ Five gradient angles are live: `216deg`, `31deg`, `45deg`, `48deg`, `90deg`.
 Only `45deg` is correct. Also present: `linear-gradient(#f2f4f7, #fff)` and
 `linear-gradient(#00000036, #08070700)`, neither of which is a brand gradient.
 
-## blink-mobile — four blues, none of them the brand blue
+## blink-mobile — four blues, none of them a Blink color
 
 | Token | Light | Dark |
 |---|---|---|
@@ -49,8 +49,9 @@ Only `45deg` is correct. Also present: `linear-gradient(#f2f4f7, #fff)` and
 
 `blue5` in dark mode is `#F0F0F7` — a near-white, not a blue. Likely a bug.
 
-The brand blue `#5D78DA` is not present in the app or on the website. It applies to
-brand surfaces only; the app is unchanged for now.
+Blink has no brand blue. `#5D78DA` was mistaken for one in an early draft, but it is only
+the editorial rule colour on the brand book's "new since 2023" notes. None of these app
+blues — and no blue at all — belongs on a Blink surface.
 
 ## blink-mobile — inverted `white` and `black` tokens
 
@@ -224,5 +225,8 @@ Do not lift copy from this page.
 ## Dead assets
 
 - **DM Sans Bold** in `app/assets/fonts/` — referenced nowhere. Not a Blink typeface.
-- **Turquoise `#3de8f4`** — specified in the brand book, used nowhere. Retained as a
-  limited illustration/data-viz accent only.
+- **Turquoise `#3de8f4`** — appeared in an early token draft but is used nowhere in the
+  brand book. Removed from the palette; not a Blink colour.
+- **"Blink blue" `#5D78DA`** — this hex is only the editorial rule colour on the brand
+  book's "new since 2023" notes, never a brand swatch. It was mistakenly canonised as a
+  brand colour in an early draft. Removed; blue is not a Blink colour.
