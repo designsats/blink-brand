@@ -393,8 +393,31 @@ Figma `bottom-sheet` (`4203:24713`), states `Default` / `default` / `empty` / `f
 
 The `80px` bottom padding is home-indicator clearance, not a design choice — keep it.
 
-⚠ **CONFLICT — radius `20`** vs system `16`. ⚠ **CONFLICT — fill `#000000`** — same issue
-as the tab bar above.
+⚠ **CONFLICT — radius `20`** vs system `16`. **RULED (Sep 2026): `20` is canon**, Figma's
+value. The one shared implementation had drifted to `16`; it is back at `20`.
+
+⚠ **CONFLICT — pull tab `26 × 3`** (Figma) vs `40 × 4` (app, three independent surfaces).
+**RULED (Sep 2026): `40 × 4` at radius `2` is canon.** Figma is the outlier here, not the
+app. Note that `26 × 3` had also been drawn at radius `999`, which is neither.
+
+⚠ **CONFLICT — fill `#000000`** — same issue as the tab bar above, still open.
+
+### 5.1.1 The canonical silhouette
+
+One shape, and it is `app/components/bottom-sheet`. Every bottom sheet in the app is that
+component; a caller wanting a different silhouette is a question for design, not a prop.
+
+| Property | Value |
+|---|---|
+| Radius | `20px 20px 0 0` |
+| Border | `1px` `grey4`, no bottom edge |
+| Padding top | `8` |
+| Pull tab | `40 × 4`, radius `2`, `grey3`, centred, `8` below |
+| Bottom overhang | `1px`, pulled off-screen — Android antialiases the straight bottom edge |
+
+This is what `place-sheet` and `amount-input-modal` were each drawing for themselves
+before there was one component to draw it once. The map's category filter had no border
+and now has one, deliberately.
 
 ### 5.2 Popup modal
 
@@ -712,7 +735,8 @@ indicator.
 | 13 | bottom-bar | Pure `#000000` contradicts the `bg.default` token rule — **needs a decision** |
 | 14 | bottom-bar | 4 tabs vs 5 in the `2026` variant |
 | 15 | bottom-bar | `#BDBDBD` (Figma, web) vs `#CCCCCC` (app dark `grey2`) |
-| 16 | bottom-sheet | Radius 20 vs system 16; fill `#000000` |
+| 16 | bottom-sheet | Radius 20 vs system 16 — **ruled: 20**; fill `#000000` still open |
+| 16b | bottom-sheet | Pull tab 26×3 (Figma) vs 40×4 (app) — **ruled: 40×4** |
 | 17 | info | Radius 6 (only `6` in the library); bar 2px vs 3px; padding differs |
 | 18 | info | `#4453E2` is a fourth app blue; blue is not a Blink color |
 | 19 | banners | `bulletin-row` (Figma) vs five unrelated app banners |
