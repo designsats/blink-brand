@@ -213,6 +213,52 @@ actions** — sending a payment, revealing a seed phrase. Never as a convenience
 and never where a normal button would do. This is the one component whose whole purpose is
 to be harder to use than the alternative.
 
+### 1.7 CTA-button-group — where actions live
+
+**Calls to action go at the bottom of the screen.** Always. Not floating mid-page, not
+beside the heading, not at the top of a form. Content scrolls; the actions sit under it,
+anchored to the bottom edge, above the safe-area inset and above the tab bar when one is
+present. On a scrolling screen the group is pinned so it stays reachable without scrolling
+to the end.
+
+**Calls to action always stack.** Full width, one above the other, primary on top. Blink
+buttons fill their container — a row of half-width buttons is not a Blink pattern in new
+work.
+
+**Never more than three buttons in one group. Four is prohibited** — not as a row, not as
+a stack, not by splitting them across two rows. If a screen seems to need a fourth action,
+it is doing two jobs: cut it, demote it into the content as a `button-tertiary` or a list
+row, or move it behind an overflow menu or a following step.
+
+| Actions | Arrangement |
+|---|---|
+| 1 | one `button-primary`, full width |
+| 2 | `button-primary` on top, `button-secondary` under it — stacked, both full width |
+| 3 | primary, then two secondaries stacked beneath in descending importance |
+| 4+ | **prohibited** — redesign the screen |
+
+- Order is fixed: the primary is always first (topmost), never buried under its
+  alternatives.
+- **Still one `button-primary` per screen.** A group of three is one primary and two
+  secondaries — never two filled buttons competing.
+- Gap between buttons in a group: `10`. Padding around the group: `20` horizontal,
+  `20` above the safe-area inset.
+- The group keeps the screen background — no bar, no border, no shadow tray behind it.
+  If the content behind it scrolls under the buttons, fade the background, don't draw a
+  rule.
+- Bottom sheets, modals and popups follow the same rule: actions at the bottom of the
+  sheet, three at most, stacked.
+
+⚠ **Side-by-side buttons in popups are legacy.** Some existing popup and dialog contexts
+place two buttons in a row. That pattern is **being discontinued as old screens are
+refactored** — it is not an approved variant. Do not add new side-by-side pairs, and do
+not cite an existing popup as precedent. Converting the ones that remain is part of the
+refactor, not a passing fix. See `references/non-conforming.md`.
+
+**Exceptions** — these are not CTAs and the rule doesn't apply to them: the bottom tab
+bar, the Home screen action buttons, `icon-button`s in a top bar, chips and filters, and
+inline `button-tertiary` actions inside list rows or cards.
+
 ---
 
 ## 2. Card

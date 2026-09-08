@@ -86,6 +86,14 @@ The app uses **12 distinct** radii: `2, 8, 10, 12, 13, 16, 20, 22, 24, 30, 50, 1
 The system has three: `8`, `16`, `999`. The app's `50` and `100` are pill approximations
 and map to `999`.
 
+## blink-mobile — side-by-side CTA buttons in popups
+
+Some existing popup and dialog contexts lay two buttons out in a row. Blink CTAs
+**always stack** — full width, primary on top (`references/components.md` §1.7). These
+rows are legacy and are **being discontinued as old screens are refactored**. Do not add
+new ones, and do not cite an existing popup as precedent for a side-by-side pair.
+Converting the survivors belongs to the refactor, not to a passing fix.
+
 ## blink-mobile — type scale not enforced
 
 `theme.ts` defines a clean ladder (24/20/18/16/14/12 at weights 400/600), but actual

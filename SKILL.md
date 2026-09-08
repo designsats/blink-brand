@@ -138,6 +138,13 @@ sections, 20 between blocks, 10 within a block.
 large (cards, modals, panels, image crops), `999` for pills, buttons and avatars.
 Nothing else. Blink buttons are pills.
 
+**Calls to action** — always at the bottom of the screen, **always stacked** full width
+with the primary on top, `10` between them. **Never more than three buttons at once; four
+is prohibited.** One `button-primary` per screen; everything else in the group is
+secondary. Side-by-side buttons in popups are legacy, being discontinued — never in new
+work. Doesn't apply to the tab bar, top-bar icon buttons, chips, or inline tertiary
+actions.
+
 **Icons** — Phosphor, **outlines only**. Blink uses three of Phosphor's six weights —
 `thin · regular · bold` — the same three the Figma `Icon` set and the app's `IconWeight`
 union ship. **Fill and Duotone are never Blink**, and neither is Light. Default to
@@ -236,6 +243,10 @@ The three things that catch people out:
   inverts the `white` token, not by choice. Black gives 6.54:1.
 - **Buttons are pills, inputs are `8`, cards are `16`.** Figma's actual radii run
   `6, 10, 12, 20, 22, 25`; the app adds `50` and `100`. Use the three-value scale.
+- **Calls to action live at the bottom of the screen, they always stack, and there are
+  never more than three.** Full width, primary on top. Four buttons in one group is
+  prohibited — cut one, demote it, or split the screen. Side-by-side pairs in popups are
+  legacy and are being discontinued; don't add new ones.
 
 Quick reference:
 
@@ -243,6 +254,7 @@ Quick reference:
 |---|---|
 | Button, primary | `radius.full`, `primary` fill, **black** label, 700/20px, `14`/`20` padding |
 | Button, secondary | `radius.full`, **no border**, transparent, `primary` label |
+| Button group (CTAs) | bottom of the screen, always stacked full width, `10` gap, **max 3**, one primary |
 | Card | `radius.lg` (16), `grey6`, `20` padding |
 | Input | `radius.sm` (8), no border at rest, coloured border for error/success |
 | Chip / pill | `radius.full`, `5`/`10` padding, 14px |
