@@ -419,6 +419,20 @@ This is what `place-sheet` and `amount-input-modal` were each drawing for themse
 before there was one component to draw it once. The map's category filter had no border
 and now has one, deliberately.
 
+**Surfaces not yet on it** (audited Sep 2026 — each predates the shared component and is
+its own ticket, not something to fold into an unrelated PR):
+
+| Surface | Drift |
+|---|---|
+| `amount-input-modal` | Canon-shaped already — radius `20`, `40 × 4` handle, `grey4` border — but hand-rolled. Should compose the component. |
+| `earns-quiz` (`modalBackground`, `bottomContainer`) | Radius `24`, hardcoded `_white`, a shadow instead of the border, no pull tab. |
+| `modal-tooltip` (`modalCard`) | Radius `40`. Furthest off of any surface in the app. |
+
+Not sheets, despite carrying a top-only radius, and correctly left alone: `home-screen`'s
+button row, `amount-input-screen-ui`'s rows, `contact-transactions`' grouped rows, and
+`galoy-info`.
+
+
 ### 5.2 Popup modal
 
 Figma `popup-modal` (`5556:30904`), app `custom-modal`. Centred, `radius.lg 16`,
