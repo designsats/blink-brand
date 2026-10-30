@@ -100,6 +100,19 @@ Details, the product scale, and the CSS/Google Fonts snippets: `references/typog
 Assets are in `assets/logo/`. Always use the SVGs provided; never redraw, never
 re-download from elsewhere, never trace from a screenshot.
 
+**Hard rule: never draw the logo.** Not as SVG paths, CSS shapes, canvas, HTML text, a
+`₿` inside a circle, or "blink" set in Ubuntu Bold Italic. Every logo you place is one of
+the files above, unmodified:
+
+- Reference the file, or embed it as a `data:image/svg+xml;base64,…` URI when the output
+  must be self-contained (artifacts, single-file HTML, PDFs, decks). Inline `<svg>` is
+  fine only if it is byte-for-byte unchanged.
+- In pptx/docx, insert the SVG — or a PNG rendered from it without edits — as a picture.
+  Never rebuild it from shapes or text.
+- Scale with width/height only. Never edit paths, fills, gradients or the `viewBox`.
+- If you can't get the file, stop and ask for it. If the variant you need doesn't exist,
+  use the closest one and say so. Never fall back to drawing, never compose a new variant.
+
 **Always**
 - Use the horizontal lockup (`blink-logo-horizontal.svg`) as the default.
 - Keep clear space of at least `x` on every side, where `x` = the height of the
@@ -166,6 +179,24 @@ Natural light, candid, the moment of paying or receiving. Never stock crypto cli
 no 3D gold coins, no hooded figures, no matrix green, no rockets, no charts-with-arrows.
 Product screenshots: light theme by default, full screens never partial crops, in a
 neutral device frame.
+
+**Social and promo graphics** — minimal but dynamic, one message per graphic:
+
+- **Canvas** black `#000000`; the orange carries the energy.
+- **Asymmetric split** — the message on one side (usually left), visual proof on the
+  other: most often a tilted phone showing the real Blink app in a real screen state,
+  never an abstract icon.
+- **One diagonal gradient shape** anchoring a corner (usually bottom-left), filled with
+  the 45° gradient token. An angled cut, not a straight rectangle.
+- **Headline** IBM Plex Sans Bold in white, very large, 2–4 words a line, preceded by a
+  smaller, lighter kicker that sets it up (eyebrow + heading, as in Language).
+- **CTA** a black pill with a white label sitting on the gradient shape — black on
+  orange is the signature here; don't swap it for orange on black.
+- **Logo** `blink-logo-horizontal-on-dark.svg`, small, top-left, clear of the headline.
+- Generous negative space. One message, one CTA, one proof point — never stack claims.
+
+Where a format can't render a gradient (some pptx/docx shapes), fill with sunset
+`#fb5607` flat rather than approximating the gradient.
 
 Full specs including the pattern tile and screenshot sample data:
 `references/layout.md` and `references/imagery.md`
