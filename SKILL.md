@@ -109,6 +109,12 @@ the files above, unmodified:
   fine only if it is byte-for-byte unchanged.
 - In pptx/docx, insert the SVG — or a PNG rendered from it without edits — as a picture.
   Never rebuild it from shapes or text.
+- **The SVGs carry their colours on each path** (`fill="…"`), with no `<style>` block,
+  so every renderer draws them correctly, the claude.ai Slides deck included. A
+  `<style>` block is what made Slides draw the logo black. When a logo is re-exported
+  from Illustrator, choose Styling: Presentation Attributes, never Internal CSS.
+  After placing the logo, look at the cover once: gradient circle plus a white
+  wordmark on dark, black on light, all white for the mono-white lockup.
 - Scale with width/height only. Never edit paths, fills, gradients or the `viewBox`.
 - If you can't get the file, stop and ask for it. If the variant you need doesn't exist,
   use the closest one and say so. Never fall back to drawing, never compose a new variant.
